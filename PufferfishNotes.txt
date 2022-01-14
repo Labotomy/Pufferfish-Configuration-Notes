@@ -38,9 +38,9 @@ BlackListed Entities:
     Reload reestrictions/notes:
            Some things don't work with a reload, particularly sentry and the async mob spawns patch. (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
            
-           
-DEAR Notes (LOE condensed interpretation in case the Airplane bloog is hard to find):
-  DEAR stands for: Dynamic Entity Activation Range
+DAB Notes:           
+DEAR Notes (LOE condensed interpretation in case the Airplane blog is hard to find):
+  DEAR stands for: Dynamic Entity Activation Range ** DEAR was renamed to DAB: Dynamic Activation Brain
   ** DEAR is based on the player being the center of the settings (as it is with most mob and chunk based server handling). **
   
   This covers two different types of aspects due to the change in mob entities by Mojang; Pathfinder goals and mob AI or the "behaviour engine".
@@ -85,6 +85,18 @@ DEAR Notes (LOE condensed interpretation in case the Airplane bloog is hard to f
     
            "If you want it to behave exactly like paper, just disable it." 
            "If you have farms, I’d recommend either disabling the entire feature, adding the entity to the blocked entities list, or reducing max tick freq to around 4."
-    
-    
+
+DAB Settings in the config:  (please review the airplane blog for a more detailed understanding)
+  # Optimizes entity brains when
+  # they're far away from the player
+  dab:
+    enabled: true                           - Enables/Disables DAB
+    start-distance: 12                      - Closest Entity distance. Below this are all entities are handled the same.
+    max-tick-freq: 20                       - The tick frequency at the FURTHEST entity activation range.
+    activation-dist-mod: 8                  - The bit shift distance value for each of the activation ranges (see table above for 8, airplane blog for others).
+    blacklisted-entities: []                - Entities to exclude. If used remove [], format is one per line: - ENTITYNAME 
+
+Inactive Goal Throttle:
+  inactive-goal-selector-throttle: true     - Enable/Disable - Inactive Entities update their goal selector every 20 ticks instead of every tick.
+     
 
