@@ -106,4 +106,9 @@ Info Settings in the config:
   enable-books: true                         - Enable/Disable Books "That option simply ... disable books ... to completely prevent book-related exploits" Kevin_
   enable-async-mob-spawning: true            - Enable/Disable to push mob spawning off the main thread. 
 
+Projectile settings in the config:
+  # Optimizes projectile settings
+  projectile:
+    max-loads-per-tick: 10                      - "Controls how many chunks are allowed to be sync loaded by projectiles in a tick."
+    max-loads-per-projectile: 10                - "Controls how many chunks a projectile can load in its lifetime before it gets automatically removed."
 
