@@ -33,4 +33,50 @@ BlackListed Entities:
           You can adjust DAB with a reload, yes (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
     Reload reestrictions/notes:
            Some things don't work with a reload, particularly sentry and the async mob spawns patch. (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
+           
+           
+DEAR Notes (LOE condensed interpretation in case the Airplane bloog is hard to find):
+  DEAR stands for: Dynamic Entity Activation Range
+  ** DEAR is based on the player being the center of the settings (as it is with most mob and chunk based server handling). **
+  
+  This covers two different types of aspects due to the change in mob entities by Mojang; Pathfinder goals and mob AI or the "behaviour engine".
+  The two examples given by Airplane (https://blog.airplane.gg/dear-configuration/ , Jan 14 2022) are: 
+         - An example of how this works is a goal that Blazes have, where they look for a nearby player to target. 
+         - If they are far away from a player, they won’t check as often for nearby players, which results in a 
+         - huge performance improvement for blazes!
+         
+         - Paper’s current implementation of this is hard-coded to the activation range. If you have an activation 
+         - range of 100 blocks, any simple entity further than 100 blocks to a player will only have their pathfinder 
+         - goals ticked 1 of 4 times. Their implementation doesn’t impact other entities like Villagers or Piglins, 
+         - while also being unable to optimize entities variably.
+  
+    These examples are important to understand, so I have directly quoted them. 
+    ** Paper's activation range settings are still in effect and can/may alter how DEAR functions if the value is near or less than the Pufferfish.yml setting. (When I wrote this I do not know if PaperMC's settings can be disabled, nor if that would be advisable for many servers LOE)
+    
+    With DEAR you are setting how often the Entities are ticked, with further out entities much less often and closer in more often (this is the common usage).
+    
+    [activation-range]
+      max-tick-freq = 20
+      activation-dist-mod = 8     (example of how this works is easier with a square number)
+      
+           If you would like entities further away to tick less often, try lowering the value to 8. 
+           Blocks Away from Player	Ticking Frequency   Real Time at 20 Ticks/Second (~ when the event happens)
+                  16 or less	             1/1                    1  second
+                  22	                     1/2                    2  seconds
+                  27	                     1/3                    3  seconds
+                  32	                     1/4                    4  seconds
+                  45	                     1/8                    8  seconds
+                  64	                     1/16                   16 seconds
+                  71 or more	             1/20                   20 seconds
+         As opposed to PaperMC's default behaviour for Out Of Range Entities every 4 seconds (at 20 ticks / second), and In Range Entities every 2 seconds.
+         
+         For these two settings: 
+             activation-dist-mod - This is actually the ticking frequency setting. ( I am unsure how this correlates to the block distance in the table)
+             
+             max-tick-freq - This is the maximum range threshold, beyond this is handled by the last ticking frequency.  ** Note in the table above this is the 1/20 **
+      
+      
+    
+    
+    
 
