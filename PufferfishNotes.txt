@@ -61,7 +61,7 @@ DEAR Notes (LOE condensed interpretation in case the Airplane bloog is hard to f
     
     [activation-range]
       max-tick-freq = 20
-      activation-dist-mod = 8     (example of how this works is easier with a square number)
+      activation-dist-mod = 8     (example of how this works is easier with a compatible bit number)
       
            If you would like entities further away to tick less often, try lowering the value to 8. 
            Blocks Away from Player	Ticking Frequency   Real Time at 20 Ticks/Second (~ when the event happens)
@@ -75,9 +75,9 @@ DEAR Notes (LOE condensed interpretation in case the Airplane bloog is hard to f
          As opposed to PaperMC's default behaviour for Out Of Range Entities every 4 seconds (at 20 ticks / second), and In Range Entities every 2 seconds.
          
          For these two settings: 
-             activation-dist-mod - This is actually the ticking frequency setting. ( I am unsure how this correlates to the block distance in the table)
+             activation-dist-mod - Activation range minimum bit distance, beyond this is handled by the last ticking frequency. (bit shift value for the block distance)  
              
-             max-tick-freq - This is the maximum range threshold, beyond this is handled by the last ticking frequency.  ** Note in the table above this is the 1/20 **
+             max-tick-freq - This is the ticking frequency setting. ** Note in the table above this is the 1/20 at the maximum range **
       
       
     
