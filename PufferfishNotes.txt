@@ -111,4 +111,11 @@ Projectile settings in the config:
   projectile:
     max-loads-per-tick: 10                      - "Controls how many chunks are allowed to be sync loaded by projectiles in a tick."
     max-loads-per-projectile: 10                - "Controls how many chunks a projectile can load in its lifetime before it gets automatically removed."
-
+    
+Flare Settings in Config:
+  # Configures Flare, the built-in profiler
+  flare:
+    url: https://flare.pufferfish.host/         - URL for the hosting flare service, see the notes on flare for details. ** PUFFERFISH requires account **
+  # Options for connecting to Pufferfish/Airplane's online utilities
+  web-services:
+    token: pufferfish                           - Access token for a given flare service, see notes on flare for details. 
