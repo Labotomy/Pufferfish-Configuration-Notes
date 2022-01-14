@@ -35,6 +35,9 @@ Projectile settings in the config:
     max-loads-per-tick: 10                      - "Controls how many chunks are allowed to be sync loaded by projectiles in a tick."
     max-loads-per-projectile: 10                - "Controls how many chunks a projectile can load in its lifetime before it gets automatically removed."
 
+
+Additional note: YouHaveTrouble has some optimization notes for this config file: https://github.com/YouHaveTrouble/minecraft-optimization#pufferfishyml
+
 ---------- Various Config Details Below ----------------
 
 FLARE Settings:
