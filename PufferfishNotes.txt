@@ -6,7 +6,7 @@ Info Settings in the config:
     version: '1.0'                           - Configuration file version
   sentry-dsn: ''                             - https://sentry.io/ Error tracking and Monitoring, subscription based. Enter the dsn you are given.
   enable-books: true                         - Enable/Disable Books "That option simply ... disable books ... to completely prevent book-related exploits" Kevin_
-  enable-async-mob-spawning: true            - Enable/Disable to push mob spawning off the main thread. 
+  enable-async-mob-spawning: true            - "Whether or not asynchronous mob spawning should be enabled. On servers with many entities, this can improve performance by up to 15%. You must have paper's per-player-mob-spawns setting set to true for this to work. One quick note - this does not actually spawn mobs async (that would be very unsafe). This just offloads some expensive calculations that are required for mob spawning." - Description request Kevin_
 
 DAB Settings in the config:  (please review the airplane blog for a more detailed understanding)
   # Optimizes entity brains when
