@@ -1,5 +1,43 @@
 
-Flare Settings:
+LINE BY LINE pufferfish.yml CONFIGURATION:
+
+Info Settings in the config:
+  info:
+    version: '1.0'                           - Configuration file version
+  sentry-dsn: ''                             - https://sentry.io/ Error tracking and Monitoring, subscription based. Enter the dsn you are given.
+  enable-books: true                         - Enable/Disable Books "That option simply ... disable books ... to completely prevent book-related exploits" Kevin_
+  enable-async-mob-spawning: true            - Enable/Disable to push mob spawning off the main thread. 
+
+DAB Settings in the config:  (please review the airplane blog for a more detailed understanding)
+  # Optimizes entity brains when
+  # they're far away from the player
+  dab:
+    enabled: true                           - Enables/Disables DAB
+    start-distance: 12                      - Closest Entity distance. Below this are all entities are handled the same.
+    max-tick-freq: 20                       - The tick frequency at the FURTHEST entity activation range.
+    activation-dist-mod: 8                  - The bit shift distance value for each of the activation ranges (see table above for 8, airplane blog for others).
+    blacklisted-entities: []                - Entities to exclude. If used remove [], format is one per line: - ENTITYNAME 
+
+Inactive Goal Throttle:
+  inactive-goal-selector-throttle: true     - Enable/Disable - Inactive Entities update their goal selector every 20 ticks instead of every tick.
+     
+Flare Settings in Config:
+  # Configures Flare, the built-in profiler
+  flare:
+    url: https://flare.pufferfish.host/         - URL for the hosting flare service, see the notes on flare for details. ** PUFFERFISH requires account **
+  # Options for connecting to Pufferfish/Airplane's online utilities
+  web-services:
+    token: pufferfish                           - Access token for a given flare service, see notes on flare for details. 
+
+Projectile settings in the config:
+  # Optimizes projectile settings
+  projectile:
+    max-loads-per-tick: 10                      - "Controls how many chunks are allowed to be sync loaded by projectiles in a tick."
+    max-loads-per-projectile: 10                - "Controls how many chunks a projectile can load in its lifetime before it gets automatically removed."
+
+---------- Various Config Details Below ----------------
+
+FLARE Settings:
   If you are a hosting client of Pufferfish.host, flare is part of your account options.
     The settings are:
        1. Set the flare URL to: flare.pufferfish.host
@@ -19,18 +57,8 @@ Flare Settings:
      There is no "help" despite the command line saying so.
 
 
-BlackListed Entities:
-  # A list of entities to ignore for activation
-  blacklisted-entities: []
-  
-  This setting requires the removal of the square brackets and a negative entitiy assignment on a new line:
-  Example:   blacklisted-entities: 
-                   - ENDERMAN
-                   - VILLAGER
-  
-  
-  
-  Reload Command: (Reload is generally NOT recommended on production servers)
+
+RELOAD Command: (Reload is generally NOT recommended on production servers)
     Usage: /pufferfish reload 
     Reload FAQ:
           Like can I turn DAB on and off with reload ?
@@ -38,6 +66,8 @@ BlackListed Entities:
     Reload reestrictions/notes:
            Some things don't work with a reload, particularly sentry and the async mob spawns patch. (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
            
+
+
 DAB Notes:           
 DEAR Notes (LOE condensed interpretation in case the Airplane blog is hard to find):
   DEAR stands for: Dynamic Entity Activation Range ** DEAR was renamed to DAB: Dynamic Activation Brain
@@ -86,36 +116,14 @@ DEAR Notes (LOE condensed interpretation in case the Airplane blog is hard to fi
            "If you want it to behave exactly like paper, just disable it." 
            "If you have farms, I’d recommend either disabling the entire feature, adding the entity to the blocked entities list, or reducing max tick freq to around 4."
 
-DAB Settings in the config:  (please review the airplane blog for a more detailed understanding)
-  # Optimizes entity brains when
-  # they're far away from the player
-  dab:
-    enabled: true                           - Enables/Disables DAB
-    start-distance: 12                      - Closest Entity distance. Below this are all entities are handled the same.
-    max-tick-freq: 20                       - The tick frequency at the FURTHEST entity activation range.
-    activation-dist-mod: 8                  - The bit shift distance value for each of the activation ranges (see table above for 8, airplane blog for others).
-    blacklisted-entities: []                - Entities to exclude. If used remove [], format is one per line: - ENTITYNAME 
+BlackListed Entities:
+  # A list of entities to ignore for activation
+  blacklisted-entities: []
+  
+  This setting requires the removal of the square brackets and a negative entitiy assignment on a new line:
+  Example:   blacklisted-entities: 
+                   - ENDERMAN
+                   - VILLAGER
 
-Inactive Goal Throttle:
-  inactive-goal-selector-throttle: true     - Enable/Disable - Inactive Entities update their goal selector every 20 ticks instead of every tick.
-     
-Info Settings in the config:
-  info:
-    version: '1.0'                           - Configuration file version
-  sentry-dsn: ''                             - https://sentry.io/ Error tracking and Monitoring, subscription based. Enter the dsn you are given.
-  enable-books: true                         - Enable/Disable Books "That option simply ... disable books ... to completely prevent book-related exploits" Kevin_
-  enable-async-mob-spawning: true            - Enable/Disable to push mob spawning off the main thread. 
-
-Projectile settings in the config:
-  # Optimizes projectile settings
-  projectile:
-    max-loads-per-tick: 10                      - "Controls how many chunks are allowed to be sync loaded by projectiles in a tick."
-    max-loads-per-projectile: 10                - "Controls how many chunks a projectile can load in its lifetime before it gets automatically removed."
     
-Flare Settings in Config:
-  # Configures Flare, the built-in profiler
-  flare:
-    url: https://flare.pufferfish.host/         - URL for the hosting flare service, see the notes on flare for details. ** PUFFERFISH requires account **
-  # Options for connecting to Pufferfish/Airplane's online utilities
-  web-services:
-    token: pufferfish                           - Access token for a given flare service, see notes on flare for details. 
+
