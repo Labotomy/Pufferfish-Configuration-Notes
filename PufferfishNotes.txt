@@ -9,10 +9,14 @@ Flare Settings:
    
    NOT A PUFFERFISH HOST CLIENT
      If you are NOT a hosting client of Pufferfish you will currently need to become a Patreon of the Airplane project to access their flare tool.
+     If you are not using the Oracle JDK you need two flags: -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+     Airplane subscription and info is at: https://blog.airplane.gg/flare-tutorial/
    
    IN PROGRESS
      The ARC project is in progress and associated with PurpurMC - Currently unavailable for access: Bribe omega24 
 
+   Flare only has one command:   /flare
+     There is no "help" despite the command line saying so.
 
 
 BlackListed Entities:
