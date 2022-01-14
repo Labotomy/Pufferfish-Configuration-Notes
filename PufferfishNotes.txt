@@ -1,0 +1,36 @@
+
+Flare Settings:
+  If you are a hosting client of Pufferfish.host, flare is part of your account options.
+    The settings are:
+       1. Set the flare URL to: flare.pufferfish.host
+       2. Set the token to: pufferfish
+     You can refer to these instructions or any updated instructions at:  https://flare.pufferfish.host/ 
+     ** Access is granted only to internal PUFFERFISH HOST IP **
+   
+   NOT A PUFFERFISH HOST CLIENT
+     If you are NOT a hosting client of Pufferfish you will currently need to become a Patreon of the Airplane project to access their flare tool.
+   
+   IN PROGRESS
+     The ARC project is in progress and associated with PurpurMC - Currently unavailable for access: Bribe omega24 
+
+
+
+BlackListed Entities:
+  # A list of entities to ignore for activation
+  blacklisted-entities: []
+  
+  This setting requires the removal of the square brackets and a negative entitiy assignment on a new line:
+  Example:   blacklisted-entities: 
+                   - ENDERMAN
+                   - VILLAGER
+  
+  
+  
+  Reload Command: (Reload is generally NOT recommended on production servers)
+    Usage: /pufferfish reload 
+    Reload FAQ:
+          Like can I turn DAB on and off with reload ?
+          You can adjust DAB with a reload, yes (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
+    Reload reestrictions/notes:
+           Some things don't work with a reload, particularly sentry and the async mob spawns patch. (Quoted from Kevin_, Jan 13 2022, Purpur Discord Server) 
+
